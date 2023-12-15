@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #20062E;
+}
+
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 50%;
+}
+
+nav
+{
+    box-shadow:  0px 0px 25px 5px #1b4972, 0px 0px 120px 50px #1b4972;
+    background-color: #1b4972;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+nav a
+{
+    color: rgb(201, 198, 198);
+    text-decoration: none;
+}
+
+.active
+{
+  color: white;
+}
+
+.signup-form, .login-form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 50vw;
+}
+
+.signup-form h1, .login-form h1
+{
+  color: white;
+}
+
+.signup-form form, .login-form form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.signup-form form input, .login-form form input
+{
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid gray;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.signup-form form input:focus, .login-form form input:focus
+{
+    outline: 2px solid blueviolet;
+    box-shadow: 0px 0px 10px 7px blueviolet;
+}
+
+
+.signup-form form button, .login-form form button
+{
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.signup-form form button:active, .login-form form button:active
+{
+    transform: scale(0.96);
+}
+
+.signup-form form button:hover, .login-form form button:hover
+{
+    background-color: rgba(255, 255, 255, 0.788);
+    color: blueviolet;
+}
+
+
+.signup-form h1, .login-form h1
+{
+    color: rgb(182, 182, 182);
+}
+
+.signup div h1
+{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.signup div h1 b
+{
+    color: blueviolet;
+    cursor: pointer;
+}
+
+
+.profile h1
+{
+  color: white;
+}
