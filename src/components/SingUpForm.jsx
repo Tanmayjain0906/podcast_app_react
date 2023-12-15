@@ -1,9 +1,9 @@
 import React from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { storage, auth, db } from '../firebase';
 import { useState } from 'react';
 import { setDoc, doc } from 'firebase/firestore';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
@@ -21,6 +21,8 @@ const SingUpForm = () => {
 
   const { setLoginOrSingup } = useContext(loginOrSingupContext);
 
+  const data = useSelector((state) => state.user);
+  console.log(data);
 
   async function handleForm(e) {
     e.preventDefault();

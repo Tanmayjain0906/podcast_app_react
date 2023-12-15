@@ -147,3 +147,30 @@ nav a
 {
   color: white;
 }
+
+#logout-btn
+{
+    background-color: #1b4972;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 25px;
+    align-self: center;
+}
+
+.profile
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 50vw;
+}
+
+#logout-btn:active
+{
+    transform: scale(0.96);
+}

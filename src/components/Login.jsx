@@ -31,7 +31,7 @@ function Login() {
 
         const userDoc = await getDoc(doc(db, "users", user.uid));
         const userData = userDoc.data();
-        console.log(userData);
+        
 
         dispatch(setUser({
           name: userData.name,
