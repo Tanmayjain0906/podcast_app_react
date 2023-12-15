@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useContext } from "react";
-import loginOrSingupContext from "../context/loginOrSingupContext";
+import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 
 function Navbar() {
   const {flag, loginOrSingup} = useContext(loginOrSingupContext);

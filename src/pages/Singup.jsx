@@ -1,7 +1,7 @@
 import SingUpForm from "../components/SingUpForm"
 import Login from "../components/Login"
 import { useContext } from "react";
-import loginOrSingupContext from "../context/loginOrSingupContext";
+import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 
 function Singup() {
 

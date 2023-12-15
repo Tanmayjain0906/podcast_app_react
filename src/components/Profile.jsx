@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import loginOrSingupContext from "../context/loginOrSingupContext";
+import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 
 function Profile() {
 
