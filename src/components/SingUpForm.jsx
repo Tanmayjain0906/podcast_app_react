@@ -1,13 +1,25 @@
 import React from 'react'
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { storage, auth, db } from '../firebase';
+
+//hooks
 import { useState } from 'react';
-import { setDoc, doc } from 'firebase/firestore';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../slices/userSlice';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from "react";
-import loginOrSingupContext from "../context/checking/loginOrSingupContext";
+
+
+//firebase events
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from '../firebase';
+import { setDoc, doc } from 'firebase/firestore';
+
+
+//slices
+import { setUser } from '../slices/userSlice';
+
+
+//react-tostifying
+import { toast } from 'react-toastify';
+
+
 
 const SingUpForm = () => {
 
@@ -15,33 +27,31 @@ const SingUpForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fulName, setFullName] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { setLoginOrSingup } = useContext(loginOrSingupContext);
-
   const data = useSelector((state) => state.user);
-  console.log(data);
+
 
   async function handleForm(e) {
     e.preventDefault();
-    if(!fulName || !email || !password || !confirmPassword)
-    {
-      alert('Please fill all the fields');
+    setLoading(true);
+    if (!fulName || !email || !password || !confirmPassword) {
+      toast.error('Please fill all the fields');
+      setLoading(false);
     }
-    if(password !== confirmPassword)
-    {
-      alert('Passwords do not match');
+    else if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      setLoading(false);
     }
-    if(password.length<6)
-    {
-      alert('Password must be at least 6 characters');
+    else if (password.length < 6) {
+      toast.error('Password must be at least 6 characters');
+      setLoading(false);
     }
-    if(password.length>=6)
-    {
-      try
-      {
+    else {
+      try {
         // creating a new account
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredentials.user;
@@ -58,14 +68,15 @@ const SingUpForm = () => {
           email: user.email,
           uid: user.uid
         }))
-        setLoginOrSingup(true);
+        setLoading(false);
+        toast.success("Account created");
         navigate('/profile');
       }
-      catch(error)
-      {
-        alert(error.message);
+      catch (error) {
+        setLoading(false);
+        toast.error(error.message);
       }
-      
+
     }
   }
 
@@ -74,11 +85,11 @@ const SingUpForm = () => {
       <h1>Sing Up</h1>
 
       <form onSubmit={handleForm}>
-        <input type="text" placeholder="Full Name" value={fulName} onChange={(e) => setFullName(e.target.value)}/>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-        <button type="submit">Signup Now</button>
+        <input type="text" placeholder="Full Name" value={fulName} onChange={(e) => setFullName(e.target.value)} />
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+        <button type="submit">{loading ? "Please Wait" : "Signup Now"}</button>
       </form>
 
 

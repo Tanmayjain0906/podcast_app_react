@@ -7,13 +7,11 @@ import store from './store.jsx'
 import LoginOrSingupProvider from './context/checking/LoginOrSingupProvider.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <LoginOrSingupProvider>
           <App />
         </LoginOrSingupProvider>
       </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+    </BrowserRouter>,
 )

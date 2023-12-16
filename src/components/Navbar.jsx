@@ -1,14 +1,22 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+
+//hooks
 import { useContext } from "react";
+
+
+//react-router-dom helper
+import { NavLink } from 'react-router-dom'
+
+
+//context
 import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 
 function Navbar() {
-  const {flag, loginOrSingup} = useContext(loginOrSingupContext);
+  const {flag} = useContext(loginOrSingupContext);
   return (
     <nav>
         {
-           loginOrSingup === false ? flag===false ? <NavLink to="/">Singup</NavLink>: <NavLink to="/">Login</NavLink> : null
+           flag===false ? <NavLink to="/">Singup</NavLink>: <NavLink to="/">Login</NavLink>
         }
         <NavLink to="/podcasts">Podcasts</NavLink>
         <NavLink to="/start">Start A Podcast</NavLink>

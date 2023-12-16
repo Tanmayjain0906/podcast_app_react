@@ -1,30 +1,45 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
+//hooks
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import loginOrSingupContext from "../context/checking/loginOrSingupContext";
+
+
+//firebase events
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+
+
+//slices
 import { clearUser } from '../slices/userSlice';
+
+
+//react-tostifying
+import { toast } from 'react-toastify';
+
+
+//context
+import loginOrSingupContext from "../context/checking/loginOrSingupContext";
+
 
 function Profile() {
 
   const data = useSelector((state) => state.user);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { loginOrSingup, setLoginOrSingup, setFlag } = useContext(loginOrSingupContext);
+  const { setFlag } = useContext(loginOrSingupContext);
 
-  useEffect(() => {
+  const handleLogOut = async () => {
 
-    if (!loginOrSingup) {
-      navigate('/');
+    try {
+      const logOut = await signOut(auth);
+      toast.success("User logged out");
+      dispatch(clearUser());
+      setFlag(false);
     }
-  }, [])
-
-  const handleLogOut = () => {
-    dispatch(clearUser());
-    setLoginOrSingup(false);
-    setFlag(false);
-    navigate('/');
+    catch (err) {
+      toast.error(err.message);
+    }
   }
 
   return (

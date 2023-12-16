@@ -3,10 +3,10 @@ import loginOrSingupContext from "./loginOrSingupContext";
 
 const LoginOrSingupProvider = (props) => {
     const [flag, setFlag] = useState(false);
-    const [loginOrSingup, setLoginOrSingup] = useState(false);
+   
 
     return(
-        <loginOrSingupContext.Provider value={{flag, setFlag, loginOrSingup, setLoginOrSingup}}>
+        <loginOrSingupContext.Provider value={{flag, setFlag}}>
             {props.children}
         </loginOrSingupContext.Provider>
     )

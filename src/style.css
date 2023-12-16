@@ -174,3 +174,10 @@ nav a
 {
     transform: scale(0.96);
 }
+
+.logout
+{
+    color: white;
+    font-weight: 800;
+    background-color: red;
+}
