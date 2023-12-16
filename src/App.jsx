@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Singup from "./pages/Singup"
 import Profile from "./components/Profile"
 import PrivateRoutes from "./components/PrivateRoutes"
+import CreateAPodcast from "./pages/CreateAPodcast"
 
 
 //hooks
@@ -78,6 +79,7 @@ function App() {
           <Route path="/" element={<Singup />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/create-podcast" element={<CreateAPodcast />} />
           </Route>
         </Routes>
       </div>
