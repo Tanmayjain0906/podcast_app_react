@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function ImageInput({accept, id, text , func}) {
-
-  const [image, setImage] = useState(false)
+function ImageInput({accept, id, text , setState, state}) {
 
     const handleImage = (e) => {
-        func(e.target.files[0].name)
-        setImage(true);
+        setState(e.target.files[0])
     }
   return (
     <>
-      <label htmlFor={id} className={image ? "image-active": "image-label"}>{image ? "File Selected" : text}</label>
+      <label htmlFor={id} className={state !== null ? "image-active": "image-label"}>{state !== null ? "File Selected" : text}</label>
       <input type='file' accept={accept} id={id} onChange={handleImage} style={{display: "none"}}/>
     </>
   )
 }
 
-export default ImageInput
+export default ImageInput;
