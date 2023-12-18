@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { auth, storage, db } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore"; 
+import { useNavigate } from 'react-router-dom';
 
 function CreatePodcast() {
     const [title, setTitle] = useState("");
@@ -11,6 +12,8 @@ function CreatePodcast() {
     const [banner, setBanner] = useState(null);
     const [display, setDisplay] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
 
     const handleForm = async (e) => {
@@ -47,6 +50,7 @@ function CreatePodcast() {
                 setDescription("");
                 setBanner(null);
                 setDisplay(null);
+                navigate('/podcast');
             }
             catch (error) {
                 setLoading(false);

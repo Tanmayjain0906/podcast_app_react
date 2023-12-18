@@ -5,16 +5,21 @@ import { db } from "../../firebase";
 import { setPodcast } from '../../slices/podcastSlice';
 import PodcastCard from './PodcastCard';
 import { toast } from 'react-toastify';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function PodcastData() {
 
   const dispatch = useDispatch();
   const podcasts = useSelector(state => state.podcast.podcast);
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const [search, setSearch] = useState("");
+
+  const filteredPodcasts = podcasts.filter((podcast) => podcast.title.trim().toLowerCase().includes(search.trim().toLowerCase()))
 
   useEffect(() => {
      
-    setLoading(true);
     const unsubscribe = onSnapshot(query(collection(db, "podcast")), (querySnapshot) => {
       const podcastData = [];
       querySnapshot.forEach((doc) => {
@@ -22,10 +27,8 @@ function PodcastData() {
       });
 
       dispatch(setPodcast(podcastData));
-      setLoading(false);
     }, (err) => {
       toast.error(err.message);
-      setLoading(false);
     });
 
     return () => {
@@ -33,24 +36,30 @@ function PodcastData() {
     }
   }, [dispatch])
 
-  if(loading)
-  {
-    return <h1 className="container"style={{color: "white"}}>Loading...</h1>
-  }
-
   return (
     <div className='podcast-data-container'>
-      <h1>Discover Podcasts</h1>
+      
+      {podcasts.length > 0 ? <h1>Discover Podcasts</h1> : <h1 className='container'>No Podcasts Available <NavLink to="/create-podcast">Click Here To Create A Podcast</NavLink></h1>}
 
-      <div className='podcast-card-container'>
-        {podcasts.map((podcast) => {
+      {
+        podcasts.length > 0 && <input type='text' placeholder='Search podcast by title' value={search} onChange={(e) => setSearch(e.target.value)} />
+      }
+
+      {
+        filteredPodcasts.length>0 && <div className='podcast-card-container'>
+        { filteredPodcasts.map((podcast) => {
           return (
-            <div className='podcast-card' key={podcast.id}>
-              <PodcastCard id={podcast.id} title={podcast.title} displayImage={podcast.displayUrl} />
+            <div className='podcast-card' key={podcast.id} onClick={() => navigate(`/podcast/${podcast.id}`)}>
+              <PodcastCard  title={podcast.title} displayImage={podcast.displayUrl} />
             </div>
           )
         })}
       </div>
+      }
+
+      {
+        (filteredPodcasts.length === 0 && search) && <h2>Result Not Found!</h2>
+      }
 
     </div>
   )
