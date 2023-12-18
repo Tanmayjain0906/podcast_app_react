@@ -13,16 +13,14 @@ body {
 }
 
 
-.main
-{
+.main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container
-{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,9 +29,8 @@ body {
     width: 50%;
 }
 
-nav
-{
-    box-shadow:  0px 0px 25px 5px #1b4972, 0px 0px 120px 50px #1b4972;
+nav {
+    box-shadow: 0px 0px 25px 5px #1b4972, 0px 0px 120px 50px #1b4972;
     background-color: #1b4972;
     width: 50%;
     display: flex;
@@ -45,19 +42,18 @@ nav
 }
 
 
-nav a
-{
+nav a {
     color: rgb(201, 198, 198);
     text-decoration: none;
 }
 
-.active
-{
-  color: white;
+.active {
+    color: white;
 }
 
-.signup-form, .login-form, .create-podcast-form
-{
+.signup-form,
+.login-form,
+.create-podcast-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,13 +62,15 @@ nav a
     width: 50vw;
 }
 
-.signup-form h1, .login-form h1, .create-podcast-form h1
-{
-  color: white;
+.signup-form h1,
+.login-form h1,
+.create-podcast-form h1 {
+    color: white;
 }
 
-.signup-form form, .login-form form, .create-podcast-form form
-{
+.signup-form form,
+.login-form form,
+.create-podcast-form form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,8 +79,9 @@ nav a
     width: 100%;
 }
 
-.signup-form form input, .login-form form input, .create-podcast-form form input
-{
+.signup-form form input,
+.login-form form input,
+.create-podcast-form form input {
     width: 100%;
     background-color: transparent;
     border: 2px solid gray;
@@ -92,15 +91,17 @@ nav a
     font-size: 20px;
 }
 
-.signup-form form input:focus, .login-form form input:focus, .create-podcast-form form input:focus
-{
+.signup-form form input:focus,
+.login-form form input:focus,
+.create-podcast-form form input:focus {
     outline: 2px solid blueviolet;
     box-shadow: 0px 0px 10px 7px blueviolet;
 }
 
 
-.signup-form form button, .login-form form button, .create-podcast-form form button
-{
+.signup-form form button,
+.login-form form button,
+.create-podcast-form form button {
     width: 100%;
     background-color: transparent;
     border: 2px solid white;
@@ -112,19 +113,20 @@ nav a
     transition: all 0.5s;
 }
 
-.signup-form form button:active, .login-form form button:active, .create-podcast-form form button:active
-{
+.signup-form form button:active,
+.login-form form button:active,
+.create-podcast-form form button:active {
     transform: scale(0.96);
 }
 
-.signup-form form button:hover, .login-form form button:hover, .create-podcast-form form button:hover
-{
+.signup-form form button:hover,
+.login-form form button:hover,
+.create-podcast-form form button:hover {
     background-color: rgba(255, 255, 255, 0.788);
     color: blueviolet;
 }
 
-.create-podcast-form form label
-{
+.create-podcast-form form label {
     width: 100%;
     background-color: transparent;
     border: 3px dashed gray;
@@ -137,34 +139,29 @@ nav a
     cursor: pointer;
 }
 
-.image-active
-{
+.image-active {
     border: 3px dashed white !important;
     color: white !important;
 }
 
 
-.signup div h1
-{
+.signup div h1 {
     color: white;
     text-align: center;
     margin-top: 30px;
 }
 
-.signup div h1 b
-{
+.signup div h1 b {
     color: blueviolet;
     cursor: pointer;
 }
 
 
-.profile h1
-{
-  color: white;
+.profile h1 {
+    color: white;
 }
 
-#logout-btn
-{
+#logout-btn {
     background-color: #1b4972;
     border: none;
     color: white;
@@ -175,8 +172,7 @@ nav a
     align-self: center;
 }
 
-.profile
-{
+.profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,14 +181,74 @@ nav a
     width: 50vw;
 }
 
-#logout-btn:active
-{
+#logout-btn:active {
     transform: scale(0.96);
 }
 
-.logout
-{
+.logout {
     color: white;
     font-weight: 800;
     background-color: red;
+}
+
+.podcast-page {
+    width: 95%;
+}
+
+
+.podcast-data-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.podcast-card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.podcast-card-container a
+{
+    text-decoration: none;
+    color: white;
+}
+
+
+.podcast-card {
+   width: 373px;
+   height: 442px;
+   border-radius: 20px;
+   background: linear-gradient(
+    177.7deg,
+    rgba(58, 129, 191, 0.3) 1.63%,
+    rgba(65, 48, 90, 0.009) 148.18%
+   );
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   transition: all 0.5s;
+}
+
+.podcast-card:hover
+{
+    transform: scale(1.02);
+}
+
+.podcast-card a img {
+    height: 349px;
+    width: 333px;
+    border-radius: 15px;
+}
+
+.podcast-card a h2
+{
+    margin-top: 10px;
 }

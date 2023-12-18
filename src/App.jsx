@@ -1,9 +1,10 @@
 //components
 import Navbar from "./components/Navbar"
 import Singup from "./pages/Singup"
-import Profile from "./components/Profile"
+import Profile from "./pages/Profile"
 import PrivateRoutes from "./components/PrivateRoutes"
 import CreateAPodcast from "./pages/CreateAPodcast"
+import PodcastPage from "./pages/PodcastPage"
 
 
 //hooks
@@ -73,16 +74,15 @@ function App() {
   return (
     <div className="main">
       <Navbar />
-      <div className="container">
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Singup />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-podcast" element={<CreateAPodcast />} />
+            <Route path="/podcast" element={<PodcastPage />} />
           </Route>
-        </Routes>
-      </div>
+        </Routes> 
     </div>
   )
 }

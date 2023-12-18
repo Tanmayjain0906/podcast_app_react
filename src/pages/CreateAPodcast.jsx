@@ -3,7 +3,7 @@ import CreatePodcast from '../components/CreatePodcast'
 
 function CreateAPodcast() {
   return (
-    <div className='create-podcast'>
+    <div className='create-podcast container'>
           <CreatePodcast />
     </div>
   )

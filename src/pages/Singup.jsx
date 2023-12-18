@@ -8,7 +8,7 @@ function Singup() {
   const {flag, setFlag} = useContext(loginOrSingupContext);
 
   return (
-    <div className="signup">
+    <div className="signup container">
        {
         !flag && <div>
           <SingUpForm />

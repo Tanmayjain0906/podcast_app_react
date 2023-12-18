@@ -18,7 +18,7 @@ function Navbar() {
         {
            flag===false ? <NavLink to="/">Singup</NavLink>: <NavLink to="/">Login</NavLink>
         }
-        <NavLink to="/podcasts">Podcasts</NavLink>
+        <NavLink to="/podcast">Podcasts</NavLink>
         <NavLink to="/create-podcast">Create A Podcast</NavLink>
         <NavLink to="/profile">Profile</NavLink>
     </nav>

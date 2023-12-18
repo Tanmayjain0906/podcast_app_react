@@ -4,6 +4,7 @@ function ImageInput({accept, id, text , setState, state}) {
 
     const handleImage = (e) => {
         setState(e.target.files[0])
+        console.log(e.target.files[0])
     }
   return (
     <>

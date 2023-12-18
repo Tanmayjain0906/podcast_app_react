@@ -2,7 +2,7 @@ import React from 'react'
 
 //hooks
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -31,8 +31,6 @@ const SingUpForm = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const data = useSelector((state) => state.user);
 
 
   async function handleForm(e) {
@@ -81,7 +79,8 @@ const SingUpForm = () => {
   }
 
   return (
-    <div className='signup-form'>
+    
+      <div className='signup-form'>
       <h1>Sing Up</h1>
 
       <form onSubmit={handleForm}>
@@ -91,9 +90,9 @@ const SingUpForm = () => {
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         <button type="submit">{loading ? "Please Wait" : "Signup Now"}</button>
       </form>
-
-
     </div>
+  
+    
   )
 }
 
