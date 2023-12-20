@@ -11,7 +11,7 @@ const PrivateRoutes = () => {
         return <h1 className="container"style={{color: "white"}}>Loading...</h1>
     }
     else if(!user|| error) {
-        toast.error(`${error ? error : "Please Singup or Login"}`);
+        toast.error("Please Singup or Login");
         return <Navigate to="/" replace/>
     }
     else {

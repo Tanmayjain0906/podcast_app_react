@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { collection, query, onSnapshot } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, auth } from "../../firebase";
 import { setPodcast } from '../../slices/podcastSlice';
 import PodcastCard from './PodcastCard';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ function PodcastData() {
   const filteredPodcasts = podcasts.filter((podcast) => podcast.title.trim().toLowerCase().includes(search.trim().toLowerCase()))
 
   useEffect(() => {
-     
+
     const unsubscribe = onSnapshot(query(collection(db, "podcast")), (querySnapshot) => {
       const podcastData = [];
       querySnapshot.forEach((doc) => {
@@ -38,7 +38,7 @@ function PodcastData() {
 
   return (
     <div className='podcast-data-container'>
-      
+
       {podcasts.length > 0 ? <h1>Discover Podcasts</h1> : <h1 className='container'>No Podcasts Available <NavLink to="/create-podcast">Click Here To Create A Podcast</NavLink></h1>}
 
       {
@@ -46,15 +46,18 @@ function PodcastData() {
       }
 
       {
-        filteredPodcasts.length>0 && <div className='podcast-card-container'>
-        { filteredPodcasts.map((podcast) => {
-          return (
-            <div className='podcast-card' key={podcast.id} onClick={() => navigate(`/podcast/${podcast.id}`)}>
-              <PodcastCard  title={podcast.title} displayImage={podcast.displayUrl} />
-            </div>
-          )
-        })}
-      </div>
+        filteredPodcasts.length > 0 && <div className='podcast-card-container'>
+          {filteredPodcasts.map((podcast) => {
+            return (
+              <div className="podcast-wrapper" key={podcast.id} onClick={() => navigate(`/podcast/${podcast.id}`)}>
+                {auth.currentUser.uid == podcast.createdBy && <h2 className='my-podcast'>My Podcast</h2> }
+                <div className='podcast-card'>
+                  <PodcastCard title={podcast.title} displayImage={podcast.displayUrl}/>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       }
 
       {

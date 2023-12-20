@@ -229,7 +229,11 @@ nav a {
     text-decoration: none;
     color: white;
 }
-
+.podcast-wrapper
+{
+    position: relative;
+    height: 500px;
+}
 
 .podcast-card {
    width: 373px;
@@ -246,11 +250,25 @@ nav a {
    align-items: center;
    transition: all 0.5s;
    cursor: pointer;
+   overflow-x: auto;
+   margin-top: 40px;
 }
+
+.podcast-card::-webkit-scrollbar {
+    display: none;
+  }
 
 .podcast-card:hover
 {
     transform: scale(1.02);
+}
+
+.my-podcast
+{
+    position: absolute;
+    right: 125px;
+    font-weight: 700; 
+    color:#8f8296;   
 }
 
 .podcast-card div img {
@@ -262,4 +280,71 @@ nav a {
 .podcast-card div h2
 {
     margin-top: 10px;
+}
+
+.podcast-details
+{
+    color: white;
+    margin-top: 30px;
+    width: 95vw;
+    text-align: left;
+}
+
+.banner-container
+{
+    width: 100%;
+    height: 442px;
+    background: linear-gradient(
+        177.7deg,
+        rgba(58, 129, 191, 0.3) 1.63%,
+        rgba(65, 48, 90, 0.009) 148.18%
+       );
+     padding: 15px;
+     margin-top: 20px;
+}
+
+.banner-container img
+{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;    
+    object-fit: cover;
+}
+
+.podcast-details p
+{
+    margin-top: 30px;
+    color:#8f8296;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.podcast-details-upper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.podcast-details-upper button
+{
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.podcast-details-upper button:hover
+{
+    background-color: rgba(255, 255, 255, 0.788);
+    color: blueviolet;
+}
+
+.podcast-details-upper button:active
+{
+    transform: scale(0.96);
 }

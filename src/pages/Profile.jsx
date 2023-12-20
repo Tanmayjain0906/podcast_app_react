@@ -32,7 +32,7 @@ function Profile() {
   const handleLogOut = async () => {
 
     try {
-      const logOut = await signOut(auth);
+      await signOut(auth);
       toast.success("User logged out");
       dispatch(clearUser());
       setFlag(false);

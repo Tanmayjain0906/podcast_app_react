@@ -1,13 +1,15 @@
 import React from 'react'
 
 
-function PodcastCard({title, displayImage }) {
+
+function PodcastCard({title, displayImage}) {
     return (
-            <div>
+            <div >
                <img src={displayImage} alt={title} />
-                <h2>{title}</h2>
-            </div>
-                
+               <div>
+               <h2>{title}</h2>
+               </div> 
+            </div>           
     )
 }
 

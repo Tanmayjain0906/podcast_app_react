@@ -5,6 +5,7 @@ import Profile from "./pages/Profile"
 import PrivateRoutes from "./components/PrivateRoutes"
 import CreateAPodcast from "./pages/CreateAPodcast"
 import PodcastPage from "./pages/PodcastPage"
+import PodcastDetailsPage from "./pages/PodcastDetailsPage"
 
 
 //hooks
@@ -81,6 +82,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-podcast" element={<CreateAPodcast />} />
             <Route path="/podcast" element={<PodcastPage />} />
+            <Route path="/podcast/:id" element={<PodcastDetailsPage />} />
           </Route>
         </Routes> 
     </div>
