@@ -6,6 +6,7 @@ import PrivateRoutes from "./components/PrivateRoutes"
 import CreateAPodcast from "./pages/CreateAPodcast"
 import PodcastPage from "./pages/PodcastPage"
 import PodcastDetailsPage from "./pages/PodcastDetailsPage"
+import CreateAnEpisode from "./pages/CreateAnEpisode"
 
 
 //hooks
@@ -42,7 +43,6 @@ import { setUser } from "./slices/userSlice"
 function App() {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -56,7 +56,7 @@ function App() {
               name: userData.name,
               email: userData.email
             }))
-            navigate("/profile");
+            
           }
         }, (err) => {
           alert(err)
@@ -83,6 +83,7 @@ function App() {
             <Route path="/create-podcast" element={<CreateAPodcast />} />
             <Route path="/podcast" element={<PodcastPage />} />
             <Route path="/podcast/:id" element={<PodcastDetailsPage />} />
+            <Route path="/podcast/:id/create-episodes" element={<CreateAnEpisode />} />
           </Route>
         </Routes> 
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ImageInput from './ImageInput';
+import FileInput from './FileInput';
 import { toast } from 'react-toastify';
 import { auth, storage, db } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -66,8 +66,8 @@ function CreatePodcast() {
             <form onSubmit={handleForm}>
                 <input type="text" placeholder="Podcast Title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 <input type="text" placeholder="Podcast Description" value={description} onChange={(e) => setDescription(e.target.value)} />
-                <ImageInput accept="image/*" id="banner" text="Podcast Banner" setState={setBanner} state={banner} />
-                <ImageInput accept="image/*" id="display" text="Podcast Display" setState={setDisplay} state={display} />
+                <FileInput accept="image/*" id="banner" text="Podcast Banner" setState={setBanner} state={banner} />
+                <FileInput accept="image/*" id="display" text="Podcast Display" setState={setDisplay} state={display} />
                 <button type="submit">{loading? "Please Wait..." : "Create Podcast"}</button>
             </form>
         </div>
