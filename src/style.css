@@ -53,7 +53,8 @@ nav a {
 
 .signup-form,
 .login-form,
-.create-podcast-form, .episode-form {
+.create-podcast-form,
+.episode-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,13 +65,15 @@ nav a {
 
 .signup-form h1,
 .login-form h1,
-.create-podcast-form h1, .episode-form h1{
+.create-podcast-form h1,
+.episode-form h1 {
     color: white;
 }
 
 .signup-form form,
 .login-form form,
-.create-podcast-form form, .episode-form form{
+.create-podcast-form form,
+.episode-form form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +84,9 @@ nav a {
 
 .signup-form form input,
 .login-form form input,
-.create-podcast-form form input, .podcast-data-container input, .episode-form input {
+.create-podcast-form form input,
+.podcast-data-container input,
+.episode-form input {
     width: 100%;
     background-color: transparent;
     border: 2px solid gray;
@@ -93,7 +98,9 @@ nav a {
 
 .signup-form form input:focus,
 .login-form form input:focus,
-.create-podcast-form form input:focus, .podcast-data-container input:focus, .episode-form input:focus {
+.create-podcast-form form input:focus,
+.podcast-data-container input:focus,
+.episode-form input:focus {
     outline: 2px solid blueviolet;
     box-shadow: 0px 0px 10px 7px blueviolet;
 }
@@ -101,7 +108,8 @@ nav a {
 
 .signup-form form button,
 .login-form form button,
-.create-podcast-form form button, .episode-form form button {
+.create-podcast-form form button,
+.episode-form form button {
     width: 100%;
     background-color: transparent;
     border: 2px solid white;
@@ -115,18 +123,22 @@ nav a {
 
 .signup-form form button:active,
 .login-form form button:active,
-.create-podcast-form form button:active, .episode-form form button:active {
+.create-podcast-form form button:active,
+.episode-form form button:active {
     transform: scale(0.96);
 }
 
 .signup-form form button:hover,
 .login-form form button:hover,
-.create-podcast-form form button:hover, .episode-form form button:hover {
+.create-podcast-form form button:hover,
+.episode-form form button:hover {
     background-color: rgba(255, 255, 255, 0.788);
     color: blueviolet;
 }
 
-.create-podcast-form form label, .episode-form form label {
+.create-podcast-form form label,
+.episode-form form label,
+.signup-form form label {
     width: 100%;
     background-color: transparent;
     border: 3px dashed gray;
@@ -168,7 +180,6 @@ nav a {
     padding: 10px 20px;
     border-radius: 10px;
     font-size: 20px;
-    margin-top: 25px;
     align-self: center;
 }
 
@@ -206,8 +217,7 @@ nav a {
     margin-top: 60px;
 }
 
-.podcast-data-container h1 a
-{
+.podcast-data-container h1 a {
     text-decoration: none;
     font-size: 18px;
     margin-top: 10px;
@@ -224,51 +234,92 @@ nav a {
     flex-wrap: wrap;
 }
 
-.podcast-card-container a
-{
+.podcast-card-container a {
     text-decoration: none;
     color: white;
 }
-.podcast-wrapper
-{
+
+.podcast-wrapper {
     position: relative;
     height: 500px;
+
 }
 
 .podcast-card {
-   width: 373px;
-   height: 442px;
-   border-radius: 20px;
-   background: linear-gradient(
-    177.7deg,
-    rgba(58, 129, 191, 0.3) 1.63%,
-    rgba(65, 48, 90, 0.009) 148.18%
-   );
-   padding: 10px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   transition: all 0.5s;
-   cursor: pointer;
-   overflow-x: auto;
-   margin-top: 40px;
+    width: 373px;
+    height: 442px;
+    border-radius: 20px;
+    background: linear-gradient(177.7deg,
+            rgba(58, 129, 191, 0.3) 1.63%,
+            rgba(65, 48, 90, 0.009) 148.18%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+.profile-container {
+    color: white;
+}
+
+.profile-container h1 {
+    margin-bottom: 15px;
+}
+
+.profile-card
+{
+    width: 373px;
+    height: 442px;
+    border-radius: 20px;
+    background: linear-gradient(177.7deg,
+            rgba(58, 129, 191, 0.3) 1.63%,
+            rgba(65, 48, 90, 0.009) 148.18%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    overflow-x: auto;
+}
+
+.profile-card div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.profile-card div img {
+    height: 349px;
+    width: 333px;
+    border-radius: 15px;
+    object-fit: cover;
+
+}
+
+.profile-card::-webkit-scrollbar {
+    display: none;
 }
 
 .podcast-card::-webkit-scrollbar {
     display: none;
-  }
+}
 
-.podcast-card:hover
-{
+.podcast-card:hover {
     transform: scale(1.02);
 }
 
-.my-podcast
-{
+.my-podcast {
     position: absolute;
     right: 125px;
-    font-weight: 700; 
-    color:#8f8296;   
+    font-weight: 700;
+    color: #8f8296;
 }
 
 .podcast-card div img {
@@ -278,57 +329,48 @@ nav a {
     object-fit: cover;
 }
 
-.podcast-card div h2
-{
+.podcast-card div h2 {
     margin-top: 10px;
 }
 
-.podcast-details
-{
+.podcast-details {
     color: white;
     margin-top: 30px;
     width: 95vw;
     text-align: left;
 }
 
-.banner-container
-{
+.banner-container {
     width: 100%;
     height: 442px;
-    background: linear-gradient(
-        177.7deg,
-        rgba(58, 129, 191, 0.3) 1.63%,
-        rgba(65, 48, 90, 0.009) 148.18%
-       );
-     padding: 15px;
-     margin-top: 20px;
+    background: linear-gradient(177.7deg,
+            rgba(58, 129, 191, 0.3) 1.63%,
+            rgba(65, 48, 90, 0.009) 148.18%);
+    padding: 15px;
+    margin-top: 20px;
 }
 
-.banner-container img
-{
+.banner-container img {
     height: 100%;
     width: 100%;
-    border-radius: 20px;    
+    border-radius: 20px;
     object-fit: cover;
 }
 
-.podcast-details p
-{
+.podcast-details p {
     margin-top: 30px;
-    color:#8f8296;
+    color: #8f8296;
     font-weight: 700;
     line-height: 30px;
 }
 
-.podcast-details-upper
-{
+.podcast-details-upper {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.podcast-details-upper button
-{
+.podcast-details-upper button {
     background-color: transparent;
     border: 2px solid white;
     padding: 20px;
@@ -339,19 +381,16 @@ nav a {
     transition: all 0.5s;
 }
 
-.podcast-details-upper button:hover
-{
+.podcast-details-upper button:hover {
     background-color: rgba(255, 255, 255, 0.788);
     color: blueviolet;
 }
 
-.podcast-details-upper button:active
-{
+.podcast-details-upper button:active {
     transform: scale(0.96);
 }
 
-.episodes-container
-{
+.episodes-container {
     color: white;
     margin-top: 30px;
     display: flex;
@@ -360,8 +399,7 @@ nav a {
     margin-bottom: 70px;
 }
 
-.episode
-{
+.episode {
     display: flex;
     width: 95vw;
     justify-content: space-between;
@@ -369,8 +407,7 @@ nav a {
 
 }
 
-.episode div
-{
+.episode div {
     display: flex;
     gap: 15px;
     flex-direction: column;
@@ -379,17 +416,15 @@ nav a {
     margin-top: 20px;
 }
 
-.episode div p
-{
+.episode div p {
     margin-left: 20px;
-    color:#8f8296;
+    color: #8f8296;
     font-weight: 700;
     line-height: 30px;
     width: 80%;
 }
 
-.episode button
-{
+.episode button {
     margin-left: 20px;
     width: 150px;
     background-color: transparent;
@@ -402,54 +437,45 @@ nav a {
     transition: all 0.5s;
 }
 
-.episode button:hover
-{
+.episode button:hover {
     background-color: rgba(255, 255, 255, 0.788);
     color: blueviolet;
 }
 
-.episode button:active
-{
+.episode button:active {
     transform: scale(0.96);
 }
 
-.download-button
-{
+.download-button {
     background-color: #1b4972 !important;
     border: none !important;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
     font-size: 20px;
-    margin-top: 25px; 
-    transition: all 0.5s; 
-    
+    margin-top: 25px;
+    transition: all 0.5s;
+
 }
 
-.download-button:hover
-{
+.download-button:hover {
     background-color: #2e6ea7 !important;
 }
 
 
-.download-button a
-{
+.download-button a {
     text-decoration: none;
     color: white;
 }
 
-.download-button:active
-{
+.download-button:active {
     transform: scale(0.96);
 }
 
-.audio-container
-{
-    background: linear-gradient(
-        177.7deg,
-        rgba(58, 129, 191, 0.3) 1.63%,
-        rgba(65, 48, 90, 0.009) 148.18%
-       );
+.audio-container {
+    background: linear-gradient(177.7deg,
+            rgba(58, 129, 191, 0.3) 1.63%,
+            rgba(65, 48, 90, 0.009) 148.18%);
     padding: 8px 10px;
     position: fixed;
     left: 0;
@@ -463,37 +489,34 @@ nav a {
     justify-content: center;
 }
 
-.audio-container img
-{
+.audio-container img {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.audio-flex
-{
+.audio-flex {
     display: flex;
     width: 80%;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
-.audio-left
-{
+.audio-left {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.duration-range, .volume-range
-{
+
+.duration-range,
+.volume-range {
     filter: hue-rotate(25deg);
     width: 80%;
 }
 
-.duration-container
-{
+.duration-container {
     display: flex;
     align-items: center;
     margin-left: 25px;
@@ -502,8 +525,7 @@ nav a {
     gap: 12px;
 }
 
-.volume-container
-{
+.volume-container {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -511,8 +533,27 @@ nav a {
     width: 20%;
 }
 
-.timer
-{
+.timer {
     width: 60px;
 }
 
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #2e6ea7;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

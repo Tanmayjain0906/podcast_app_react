@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 
 //firebase events
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from '../firebase';
+import { auth, db, storage } from '../firebase';
 import { setDoc, doc } from 'firebase/firestore';
-
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 //slices
 import { setUser } from '../slices/userSlice';
@@ -20,6 +20,8 @@ import { setUser } from '../slices/userSlice';
 import { toast } from 'react-toastify';
 
 
+import FileInput from './FileInput';
+
 
 const SingUpForm = () => {
 
@@ -28,6 +30,7 @@ const SingUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fulName, setFullName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [profile, setProfile] = useState(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +39,7 @@ const SingUpForm = () => {
   async function handleForm(e) {
     e.preventDefault();
     setLoading(true);
-    if (!fulName || !email || !password || !confirmPassword) {
+    if (!fulName || !email || !password || !confirmPassword || profile == null) {
       toast.error('Please fill all the fields');
       setLoading(false);
     }
@@ -50,6 +53,13 @@ const SingUpForm = () => {
     }
     else {
       try {
+
+        const profileRef = ref(storage, `profile/${auth.currentUser.uid}/${Date.now()}`);
+        await uploadBytes(profileRef, profile);
+
+        const profileUrl = await getDownloadURL(profileRef);
+
+
         // creating a new account
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredentials.user;
@@ -58,13 +68,15 @@ const SingUpForm = () => {
         await setDoc(doc(db, "users", user.uid), {
           name: fulName,
           email: user.email,
-          uid: user.uid
+          uid: user.uid,
+          profile: profileUrl,
         });
 
         dispatch(setUser({
           name: fulName,
           email: user.email,
-          uid: user.uid
+          uid: user.uid,
+          profile: profileUrl,
         }))
         setLoading(false);
         toast.success("Account created");
@@ -79,8 +91,8 @@ const SingUpForm = () => {
   }
 
   return (
-    
-      <div className='signup-form'>
+
+    <div className='signup-form'>
       <h1>Sing Up</h1>
 
       <form onSubmit={handleForm}>
@@ -88,11 +100,12 @@ const SingUpForm = () => {
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+        <FileInput accept="image/*" id="profile-image" text="Profile Picture" setState={setProfile} state={profile} />
         <button type="submit">{loading ? "Please Wait..." : "Signup Now"}</button>
       </form>
     </div>
-  
-    
+
+
   )
 }
 

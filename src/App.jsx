@@ -26,7 +26,7 @@ import { doc, onSnapshot } from "firebase/firestore"
 
 
 //react-tostifying
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 //css
@@ -54,9 +54,9 @@ function App() {
             dispatch(setUser({
               uid: user.uid,
               name: userData.name,
-              email: userData.email
+              email: userData.email,
+              profile: userData.profile,
             }))
-            
           }
         }, (err) => {
           alert(err)

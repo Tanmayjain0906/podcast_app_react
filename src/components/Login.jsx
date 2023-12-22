@@ -53,7 +53,8 @@ function Login() {
         dispatch(setUser({
           name: userData.name,
           email: userData.email,
-          uid: userData.uid
+          uid: userData.uid,
+          profile: userData.profile,
         }))
         setLoading(false);
         toast.success("Login successful");

@@ -43,11 +43,14 @@ function Profile() {
   }
 
   return (
-    <div className='container'>
-      {data.user !== null && <div className='profile'>
-        <h1>{`Welcome ${data.user.name}`}</h1>
-        <button onClick={handleLogOut} id='logout-btn'>Logout hiii</button>
-      </div>}
+    <div className='container profile-container'>
+      {data.user !== null && <h1>{`Welcome ${data.user.name}`}</h1>}
+      <div className='profile-card'>
+        {data.user !== null && <div className='profile'>
+          {data.user.profile ? <img src={data.user.profile}/> : <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'/>}
+          <button onClick={handleLogOut} id='logout-btn'>Logout</button>
+        </div>}
+      </div>
     </div>
   )
 }

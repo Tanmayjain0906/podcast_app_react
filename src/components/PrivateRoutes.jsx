@@ -8,7 +8,7 @@ const PrivateRoutes = () => {
    
     if (loading) 
     {
-        return <h1 className="container"style={{color: "white"}}>Loading...</h1>
+        return <div className="container"><span className="loader"></span></div>
     }
     else if(!user|| error) {
         toast.error("Please Singup or Login");
