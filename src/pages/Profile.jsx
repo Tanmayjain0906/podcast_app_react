@@ -46,7 +46,7 @@ function Profile() {
     <div className='container'>
       {data.user !== null && <div className='profile'>
         <h1>{`Welcome ${data.user.name}`}</h1>
-        <button onClick={handleLogOut} id='logout-btn'>Logout</button>
+        <button onClick={handleLogOut} id='logout-btn'>Logout hiii</button>
       </div>}
     </div>
   )
