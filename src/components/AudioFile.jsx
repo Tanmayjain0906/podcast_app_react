@@ -115,7 +115,7 @@ function AudioFile({ audioSrc, imageSrc, title }) {
           <IconContext.Provider
             value={{ size: '25px' }}
           >
-            <div onClick={() => setIsPlaying(!isPlaying)}>
+            <div onClick={() => setIsPlaying(!isPlaying)} className='icons'>
               {
                 isPlaying ? <FaCirclePause /> : <FaPlayCircle />
               }
@@ -131,7 +131,7 @@ function AudioFile({ audioSrc, imageSrc, title }) {
           <IconContext.Provider
             value={{ size: '25px' }}
           >
-            <div onClick={() => setIsMute(!isMute)}>
+            <div onClick={() => setIsMute(!isMute)} className='icons'>
               {
                 isMute ? <FaVolumeMute /> : <FaVolumeUp />
               }

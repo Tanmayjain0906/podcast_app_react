@@ -74,6 +74,7 @@ function Login() {
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">{loading ? "Please Wait..." : "Login"}</button>
+        <a href='/forgot-password' >Forgot Password?</a>
       </form>
 
     </div>

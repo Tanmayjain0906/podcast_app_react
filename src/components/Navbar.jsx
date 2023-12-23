@@ -20,8 +20,8 @@ function Navbar() {
         }
         <NavLink to="/podcast">Podcasts</NavLink>
         <NavLink to="/create-podcast">Create A Podcast</NavLink>
-        <NavLink to="/profile">Profile</NavLink>
         <NavLink to="/change-password">Change Password</NavLink>
+        <NavLink to="/profile">Profile</NavLink>  
     </nav>
   )
 }
