@@ -39,7 +39,7 @@ const SingUpForm = () => {
   async function handleForm(e) {
     e.preventDefault();
     setLoading(true);
-    if (!fulName || !email || !password || !confirmPassword || profile == null) {
+    if (!fulName || !email || !password || !confirmPassword || profile === null) {
       toast.error('Please fill all the fields');
       setLoading(false);
     }
@@ -54,15 +54,16 @@ const SingUpForm = () => {
     else {
       try {
 
-        const profileRef = ref(storage, `profile/${auth.currentUser.uid}/${Date.now()}`);
-        await uploadBytes(profileRef, profile);
-
-        const profileUrl = await getDownloadURL(profileRef);
-
-
         // creating a new account
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredentials.user;
+
+
+        // creating profile url
+        const profileRef = ref(storage, `profile/${user.uid}/${Date.now()}`);
+        await uploadBytes(profileRef, profile);
+
+        const profileUrl = await getDownloadURL(profileRef);
 
         // saving account
         await setDoc(doc(db, "users", user.uid), {
@@ -80,11 +81,13 @@ const SingUpForm = () => {
         }))
         setLoading(false);
         toast.success("Account created");
+        setProfile(null);
         navigate('/profile');
       }
       catch (error) {
         setLoading(false);
         toast.error(error.message);
+        console.log(error);
       }
 
     }
