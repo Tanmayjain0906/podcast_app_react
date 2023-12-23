@@ -27,6 +27,7 @@ import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 function Profile() {
 
   const data = useSelector((state) => state.user);
+  console.log(data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

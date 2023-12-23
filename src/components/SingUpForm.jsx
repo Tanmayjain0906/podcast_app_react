@@ -39,7 +39,7 @@ const SingUpForm = () => {
   async function handleForm(e) {
     e.preventDefault();
     setLoading(true);
-    if (!fulName || !email || !password || !confirmPassword || profile === null) {
+    if (!fulName || !email || !password || !confirmPassword) {
       toast.error('Please fill all the fields');
       setLoading(false);
     }
@@ -53,17 +53,23 @@ const SingUpForm = () => {
     }
     else {
       try {
-
         // creating a new account
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredentials.user;
 
+        let profileUrl;
 
-        // creating profile url
-        const profileRef = ref(storage, `profile/${user.uid}/${Date.now()}`);
-        await uploadBytes(profileRef, profile);
+        if (profile !== null) {
+          // creating profile url
+          const profileRef = ref(storage, `profile/${user.uid}/${Date.now()}`);
+          await uploadBytes(profileRef, profile);
 
-        const profileUrl = await getDownloadURL(profileRef);
+          profileUrl = await getDownloadURL(profileRef);
+
+        }
+        else {
+          profileUrl = "";
+        }
 
         // saving account
         await setDoc(doc(db, "users", user.uid), {
@@ -103,7 +109,7 @@ const SingUpForm = () => {
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-        <FileInput accept="image/*" id="profile-image" text="Profile Picture" setState={setProfile} state={profile} />
+        <FileInput accept="image/*" id="profile-image" text="Profile Picture(optional)" setState={setProfile} state={profile} />
         <button type="submit">{loading ? "Please Wait..." : "Signup Now"}</button>
       </form>
     </div>
