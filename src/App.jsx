@@ -7,7 +7,8 @@ import CreateAPodcast from "./pages/CreateAPodcast"
 import PodcastPage from "./pages/PodcastPage"
 import PodcastDetailsPage from "./pages/PodcastDetailsPage"
 import CreateAnEpisode from "./pages/CreateAnEpisode"
-
+import EditProfilePage from "./pages/EditProfilePage"
+import ChangePasswordPage from "./pages/ChangePasswordPage"
 
 //hooks
 import { useEffect } from "react"
@@ -84,6 +85,8 @@ function App() {
             <Route path="/podcast" element={<PodcastPage />} />
             <Route path="/podcast/:id" element={<PodcastDetailsPage />} />
             <Route path="/podcast/:id/create-episodes" element={<CreateAnEpisode />} />
+            <Route path="/edit-profile" element={<EditProfilePage />} />
+            <Route path="/change-password" element={<ChangePasswordPage />} />
           </Route>
         </Routes> 
     </div>

@@ -3,6 +3,7 @@ import React from 'react'
 //hooks
 import { useSelector, useDispatch } from 'react-redux'
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 //firebase events
@@ -22,10 +23,12 @@ import { toast } from 'react-toastify';
 import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 
 
+
 function Profile() {
 
   const data = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { setFlag } = useContext(loginOrSingupContext);
 
@@ -51,8 +54,9 @@ function Profile() {
           <button onClick={handleLogOut} id='logout-btn'>Logout</button>
         </div>}
       </div>
+      {data.user !== null && <button className='edit-btn' onClick={() => navigate("/edit-profile")}>Edit Profile</button>}
     </div>
   )
 }
 
-export default Profile
+export default Profile;
