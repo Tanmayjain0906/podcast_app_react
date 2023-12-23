@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 
 //firebase events
@@ -19,6 +20,8 @@ import { setUser } from '../slices/userSlice';
 //react-tostifying
 import { toast } from 'react-toastify';
 
+import loginOrSingupContext from '../context/checking/loginOrSingupContext';
+
 
 
 function Login() {
@@ -26,6 +29,8 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const {setIsForgot} = useContext(loginOrSingupContext);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -74,7 +79,7 @@ function Login() {
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">{loading ? "Please Wait..." : "Login"}</button>
-        <a href='/forgot-password' >Forgot Password?</a>
+        <p onClick={() => setIsForgot(true)}>Forgot Password?</p>
       </form>
 
     </div>

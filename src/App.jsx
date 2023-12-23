@@ -9,7 +9,7 @@ import PodcastDetailsPage from "./pages/PodcastDetailsPage"
 import CreateAnEpisode from "./pages/CreateAnEpisode"
 import EditProfilePage from "./pages/EditProfilePage"
 import ChangePasswordPage from "./pages/ChangePasswordPage"
-import ForgotPassword from "./components/ForgotPassword"
+
 
 //hooks
 import { useEffect } from "react"
@@ -89,7 +89,6 @@ function App() {
             <Route path="/edit-profile" element={<EditProfilePage />} />
             <Route path="/change-password" element={<ChangePasswordPage />} /> 
           </Route>
-          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes> 
     </div>
   )

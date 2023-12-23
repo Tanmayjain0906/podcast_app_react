@@ -31,12 +31,14 @@ function ForgotPassword() {
         }
     }
   return (
-    <div className='forgot-password-form container'>
+    <div className='forgot-password-form'>
         <h1>Forgot Password</h1>
         <form onSubmit={handleForm}>
             <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <button type="submit">Submit</button>
         </form>
+
+
     </div>
   )
 }
