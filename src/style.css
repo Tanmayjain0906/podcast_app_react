@@ -39,6 +39,7 @@ nav {
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
+    position: sticky;
 }
 
 
@@ -54,7 +55,10 @@ nav a {
 .signup-form,
 .login-form,
 .create-podcast-form,
-.episode-form, .edit-profile-form, .change-password-form, .forgot-password-form {
+.episode-form,
+.edit-profile-form,
+.change-password-form,
+.forgot-password-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,14 +70,20 @@ nav a {
 .signup-form h1,
 .login-form h1,
 .create-podcast-form h1,
-.episode-form h1, .edit-profile-form h2, .change-password-form h1, .forgot-password-form h1 {
+.episode-form h1,
+.edit-profile-form h2,
+.change-password-form h1,
+.forgot-password-form h1 {
     color: white;
 }
 
 .signup-form form,
 .login-form form,
 .create-podcast-form form,
-.episode-form form, .edit-profile-form form, .change-password-form form, .forgot-password-form form {
+.episode-form form,
+.edit-profile-form form,
+.change-password-form form,
+.forgot-password-form form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,8 +92,7 @@ nav a {
     width: 100%;
 }
 
-.login-form form p
-{
+.login-form form p {
     color: white;
     text-decoration: none;
     font-weight: 800;
@@ -94,7 +103,10 @@ nav a {
 .login-form form input,
 .create-podcast-form form input,
 .podcast-data-container input,
-.episode-form input, .edit-profile-form form input, .change-password-form form input, .forgot-password-form form input{
+.episode-form input,
+.edit-profile-form form input,
+.change-password-form form input,
+.forgot-password-form form input {
     width: 100%;
     background-color: transparent;
     border: 2px solid gray;
@@ -108,7 +120,10 @@ nav a {
 .login-form form input:focus,
 .create-podcast-form form input:focus,
 .podcast-data-container input:focus,
-.episode-form input:focus, .edit-profile-form form input:focus, .change-password-form form input:focus, .forgot-password-form form input:focus {
+.episode-form input:focus,
+.edit-profile-form form input:focus,
+.change-password-form form input:focus,
+.forgot-password-form form input:focus {
     outline: 2px solid blueviolet;
     box-shadow: 0px 0px 10px 7px blueviolet;
 }
@@ -117,7 +132,11 @@ nav a {
 .signup-form form button,
 .login-form form button,
 .create-podcast-form form button,
-.episode-form form button, .edit-btn, .edit-profile-form form button, .change-password-form form button, .forgot-password-form form button {
+.episode-form form button,
+.edit-btn,
+.edit-profile-form form button,
+.change-password-form form button,
+.forgot-password-form form button {
     width: 100%;
     background-color: transparent;
     border: 2px solid white;
@@ -132,21 +151,30 @@ nav a {
 .signup-form form button:active,
 .login-form form button:active,
 .create-podcast-form form button:active,
-.episode-form form button:active, .edit-btn:active, .edit-profile-form form button:active, .change-password-form form button:active, .forgot-password-form form button:active {
+.episode-form form button:active,
+.edit-btn:active,
+.edit-profile-form form button:active,
+.change-password-form form button:active,
+.forgot-password-form form button:active {
     transform: scale(0.96);
 }
 
 .signup-form form button:hover,
 .login-form form button:hover,
 .create-podcast-form form button:hover,
-.episode-form form button:hover, .edit-btn:hover, .edit-profile-form form button:hover, .change-password-form form button:hover, .forgot-password-form form button:hover {
+.episode-form form button:hover,
+.edit-btn:hover,
+.edit-profile-form form button:hover,
+.change-password-form form button:hover,
+.forgot-password-form form button:hover {
     background-color: rgba(255, 255, 255, 0.788);
     color: blueviolet;
 }
 
 .create-podcast-form form label,
 .episode-form form label,
-.signup-form form label, .edit-profile-form form label {
+.signup-form form label,
+.edit-profile-form form label {
     width: 100%;
     background-color: transparent;
     border: 3px dashed gray;
@@ -165,13 +193,14 @@ nav a {
 }
 
 
-.signup div h1 {
+.signup div p {
     color: white;
     text-align: center;
     margin-top: 30px;
+    font-weight: 700px;
 }
 
-.signup div h1 b {
+.signup div p b {
     color: blueviolet;
     cursor: pointer;
 }
@@ -278,8 +307,13 @@ nav a {
     gap: 12px;
 }
 
-.profile-card
-{
+.profile-container h1{
+  
+   width: 373px;
+   text-align: center;
+}
+
+.profile-card {
     width: 373px;
     height: 442px;
     border-radius: 20px;
@@ -295,8 +329,7 @@ nav a {
     overflow-x: auto;
 }
 
-.profile-card div
-{
+.profile-card div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -308,7 +341,6 @@ nav a {
     width: 333px;
     border-radius: 15px;
     object-fit: cover;
-
 }
 
 .profile-card::-webkit-scrollbar {
@@ -545,8 +577,7 @@ nav a {
     width: 60px;
 }
 
-.icons
-{
+.icons {
     cursor: pointer;
 }
 
@@ -572,7 +603,36 @@ nav a {
 }
 
 
-.forgot-password-container h1
-{
+.forgot-password-container h1 {
     margin: 0;
+}
+
+@media (max-width: 900px) {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 50%;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .signup-form,
+    .login-form,
+    .create-podcast-form,
+    .episode-form,
+    .edit-profile-form,
+    .change-password-form,
+    .forgot-password-form {
+        width: 90vw;
+        gap: 30px;
+    }
+
+
 }

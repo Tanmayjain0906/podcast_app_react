@@ -11,23 +11,24 @@ function Singup() {
 
   return (
     <div className="signup container">
+      
        {
         (!flag && isForgot === false) && <div>
           <SingUpForm />
-          <h1>Already have an account? <b onClick={() => setFlag(!flag)}>Login</b></h1>
+          <p>Already have an account? <b onClick={() => setFlag(!flag)}>Login</b></p>
         </div>
        }
        {
         (flag && isForgot === false) && <div>
           <Login />
-          <h1>Don't have an account? <b onClick={() => setFlag(!flag)}>Sign Up</b></h1>
+          <p>Don't have an account? <b onClick={() => setFlag(!flag)}>Sign Up</b></p>
         </div>
        }
 
        {
         isForgot && <div className="forgot-password-container">
            <ForgotPassword />
-           <h1>Back to <b onClick={() => setIsForgot(false)}>Login</b></h1>
+           <p>Back to <b onClick={() => setIsForgot(false)}>Login</b></p>
           </div>
        }
     </div>
