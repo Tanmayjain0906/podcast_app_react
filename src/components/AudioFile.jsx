@@ -107,10 +107,9 @@ function AudioFile({ audioSrc, imageSrc, title }) {
         <div className='audio-left'>
           <img src={imageSrc} />
           <h3>{title}</h3>
-          <audio ref={audioRef} src={audioSrc}></audio>
         </div>
 
-
+        <audio ref={audioRef} src={audioSrc}></audio>
         <div className='duration-container'>
           <IconContext.Provider
             value={{ size: '25px' }}

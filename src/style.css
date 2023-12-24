@@ -39,7 +39,7 @@ nav {
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
-   
+
 }
 
 
@@ -307,10 +307,10 @@ nav a {
     gap: 12px;
 }
 
-.profile-container h1{
-  
-   width: 373px;
-   text-align: center;
+.profile-container h1 {
+
+    width: 373px;
+    text-align: center;
 }
 
 .profile-card {
@@ -541,7 +541,6 @@ nav a {
     width: 80%;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .audio-left {
@@ -617,7 +616,7 @@ nav a {
         height: 80vh;
         width: 50%;
     }
-    
+
     nav {
         flex-direction: column;
         gap: 10px;
@@ -634,5 +633,62 @@ nav a {
         gap: 30px;
     }
 
+    .banner-container {
+        height: 220px;
+    }
+
+    .audio-container {
+        background: linear-gradient(177.7deg,
+                rgba(58, 129, 191, 0.3) 1.63%,
+                rgba(65, 48, 90, 0.009) 148.18%);
+        padding: 5px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        font-weight: 700;
+        z-index: 100;
+    }
+
+    .audio-flex {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .duration-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+    .volume-container
+    {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+        gap: 12px;
+    }
+
+    .timer {
+        width: 60px;
+        text-align: center;
+    }
+
+    .duration-range,
+    .volume-range {
+        filter: hue-rotate(25deg);
+        width: 50%;
+    }
+
+    .episodes-container {
+        margin-bottom: 120px;
+    }
 
 }
