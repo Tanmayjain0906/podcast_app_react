@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom'
 
 //context
 import loginOrSingupContext from "../context/checking/loginOrSingupContext";
-import MenuPopupState from './DashBoard';
+import MenuPopupState from './hamburger/Dashboard';
 
 
 function Navbar() {
