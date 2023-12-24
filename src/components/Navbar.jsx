@@ -10,19 +10,28 @@ import { NavLink } from 'react-router-dom'
 
 //context
 import loginOrSingupContext from "../context/checking/loginOrSingupContext";
+import MenuPopupState from './DashBoard';
+
 
 function Navbar() {
-  const {flag} = useContext(loginOrSingupContext);
+  const { flag } = useContext(loginOrSingupContext);
   return (
-    <nav>
+    <div className='navbar'>
+      <nav>
         {
-           flag===false ? <NavLink to="/">Singup</NavLink>: <NavLink to="/">Login</NavLink>
+          flag === false ? <NavLink to="/">Singup</NavLink> : <NavLink to="/">Login</NavLink>
         }
         <NavLink to="/podcast">Podcasts</NavLink>
         <NavLink to="/create-podcast">Create A Podcast</NavLink>
         <NavLink to="/change-password">Change Password</NavLink>
-        <NavLink to="/profile">Profile</NavLink>  
-    </nav>
+        <NavLink to="/profile">Profile</NavLink>
+      </nav>
+
+      <div className='dashboard'>
+        <MenuPopupState />
+      </div>
+    </div>
+
   )
 }
 
