@@ -222,6 +222,7 @@ nav a {
     border-radius: 10px;
     font-size: 20px;
     align-self: center;
+    cursor: pointer;
 }
 
 .profile {
