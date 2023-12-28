@@ -19,7 +19,7 @@ function Navbar() {
     <div className='navbar'>
       <nav>
         {
-          flag === false ? <NavLink to="/">Singup</NavLink> : <NavLink to="/">Login</NavLink>
+          flag === false ? <NavLink to="/">Signup</NavLink> : <NavLink to="/">Login</NavLink>
         }
         <NavLink to="/podcast">Podcasts</NavLink>
         <NavLink to="/create-podcast">Create A Podcast</NavLink>

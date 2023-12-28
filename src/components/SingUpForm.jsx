@@ -102,7 +102,7 @@ const SingUpForm = () => {
   return (
 
     <div className='signup-form'>
-      <h1>Sing Up</h1>
+      <h1>Sign Up</h1>
 
       <form onSubmit={handleForm}>
         <input type="text" placeholder="Full Name" value={fulName} onChange={(e) => setFullName(e.target.value)} />
