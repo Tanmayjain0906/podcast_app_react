@@ -40,6 +40,7 @@ function Profile() {
       toast.success("User logged out");
       dispatch(clearUser());
       setFlag(false);
+      navigate("/");
     }
     catch (err) {
       toast.error(err.message);

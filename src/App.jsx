@@ -46,6 +46,8 @@ function App() {
 
   const dispatch = useDispatch();
 
+
+  // check is user already logged in
   useEffect(() => {
 
     const unSubscribeAuth = onAuthStateChanged(auth, (user) => {
@@ -59,6 +61,8 @@ function App() {
               email: userData.email,
               profile: userData.profile,
             }))
+
+            
           }
         }, (err) => {
           alert(err)

@@ -4,6 +4,8 @@ import { useContext } from "react";
 import loginOrSingupContext from "../context/checking/loginOrSingupContext";
 import ForgotPassword from "../components/ForgotPassword"
 
+
+
 function Singup() {
 
   const {flag, setFlag, isForgot, setIsForgot } = useContext(loginOrSingupContext);

@@ -20,6 +20,7 @@ import { setUser } from '../slices/userSlice';
 import { toast } from 'react-toastify';
 
 
+//components
 import FileInput from './FileInput';
 
 
@@ -34,6 +35,8 @@ const SingUpForm = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+ 
 
 
   async function handleForm(e) {
@@ -85,6 +88,7 @@ const SingUpForm = () => {
           uid: user.uid,
           profile: profileUrl,
         }))
+
         setLoading(false);
         toast.success("Account created");
         setProfile(null);
