@@ -46,8 +46,6 @@ function AudioFile({ audioSrc, imageSrc, title }) {
 
   const handleTimeUpdate = () => {
     setCurrentTime(audioRef.current.currentTime);
-
-
   }
 
   const handleLoadedMetadata = () => {
